@@ -9,3 +9,4 @@ bootstrap/cache/
 .rocketeer/
 Homestead.yaml
 Homestead.json
+composer.lock
