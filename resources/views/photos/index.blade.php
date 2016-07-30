@@ -43,9 +43,9 @@
             @foreach ($photos as $photo)
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <img src="{{ $photo }}" class="img-responsive">
+                    <a href="{{ $photo->name }}" target="_blank"><img src="{{ $photo->name }}" class="img-responsive"></a>
                 </div>
-                <div class="panel-footer">123123</div>
+                <div class="panel-footer">{{ str_replace('<br>', ' ', $photo->text) }}</div>
             </div>
             @endforeach
         </div>

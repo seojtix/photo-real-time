@@ -14,12 +14,7 @@
 Route::get('/', function () {
     //return view('welcome');
 
-    $url = 'http://686project.com/demos/photographer/assets/img/photo_%NUM%.jpg';
-    $photos = [];
-    foreach (range(1, 12) as $num) {
-        $num = str_pad($num, 2, '0', STR_PAD_LEFT);
-        $photos[] = str_replace('%NUM%', $num, $url);
-    }
+    $photos = App\Models\Photo::orderBy('created_at', 'desc')->take(20)->get();
 
     return view('photos.index', compact('photos'));
 });
