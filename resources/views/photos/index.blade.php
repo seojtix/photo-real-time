@@ -14,7 +14,7 @@
 <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+        <div class="fluid-container">
             <div class="navbar-header">
                 <!--
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mobile-collapse" aria-expanded="false">
@@ -37,28 +37,28 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-	<div class="container">
+	<div class="fluid-container">
 
-        <div id="grid" data-columns>
-            @foreach ($photos as $photo)
-            <div class="panel panel-default">
+        <div v-if="$loadingAsyncData">Загрузка...</div>
+
+        <div id="grid" v-if="!$loadingAsyncData" data-columns>
+            <div class="panel panel-default" v-for="photo in photos">
                 <div class="panel-body">
-                    <a href="{{ $photo->name }}" target="_blank"><img src="{{ $photo->name }}" class="img-responsive"></a>
+                    <a href="@{{ photo.name }}" target="_blank"><img v-bind:src="photo.name"></a>
                 </div>
-                <div class="panel-footer">{{ str_replace('<br>', ' ', $photo->text) }}</div>
+                <div class="panel-footer">@{{ photo.text_trimmed }}</div>
             </div>
-            @endforeach
         </div>
 
 	</div>
 
     <footer class="footer">
-        <div class="container">
+        <div class="fluid-container">
             <p class="text-muted">&copy; Villa Guest Residence, {{ date('Y') }}.</p>
         </div>
     </footer>
 
     <script src="/js/vendor.js"></script>
-    <script src="/js/app.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>

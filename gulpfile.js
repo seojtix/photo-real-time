@@ -36,4 +36,5 @@ elixir(function(mix) {
     mix.sass('vendor.scss');
     mix.scripts(javascripts, 'public/js/vendor.js', './');
     mix.sass('app.scss');
+    mix.browserify('main.js');
 });

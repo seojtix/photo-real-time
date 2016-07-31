@@ -8,7 +8,7 @@ use App\Models\Photo;
 
 class ParseVkontakte extends Command
 {
-    private $hashtag = 'world';
+    private $hashtag = 'огонекнн';
     /**
      * The name and signature of the console command.
      *

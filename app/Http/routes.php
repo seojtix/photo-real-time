@@ -12,11 +12,13 @@
 */
 
 Route::get('/', function () {
-    //return view('welcome');
+    return view('photos.index');
+});
 
-    $photos = App\Models\Photo::orderBy('created_at', 'desc')->take(20)->get();
-
-    return view('photos.index', compact('photos'));
+Route::get('/api/photos', function() {
+    return [
+        'photos' => App\Models\Photo::orderBy('created_at', 'desc')->take(20)->get()
+    ];
 });
 
 Route::auth();

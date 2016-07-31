@@ -13,5 +13,10 @@ class Photo extends Eloquent {
         'type',
         'text'
     ];
+    protected $appends = ['text_trimmed'];
+
+    public function getTextTrimmedAttribute() {
+        return str_replace('<br>', ' ', $this->text);
+    }
 
 }

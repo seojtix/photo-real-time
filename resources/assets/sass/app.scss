@@ -31,13 +31,21 @@ footer {
 #grid {
     .panel {
         border-radius: 0;
+        border: 6px solid #fff;
 
         .panel-body {
             padding: 0;
+            text-align: center;
+
+            img {
+                max-width: 100%;
+                width: 100%;
+            }
         }
 
         .panel-footer {
             background: #fff;
+            font-size: 22px;
 
             overflow-wrap: break-word;
             word-wrap: break-word;
@@ -56,18 +64,18 @@ footer {
 
 @media screen and (min-width: 1px) and (max-width: 767px) {
     #grid[data-columns]::before {
-        content: '2 .col-xs-6';
+        content: '1 .col-xs-12';
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
     #grid[data-columns]::before {
-        content: '3 .col-sm-4';
+        content: '2 .col-sm-6';
     }
 }
 
 @media screen and (min-width: 992px) and (max-width: 9999px) {
     #grid[data-columns]::before {
-        content: '4 .col-md-3';
+        content: '2 .col-md-6';
     }
 }
